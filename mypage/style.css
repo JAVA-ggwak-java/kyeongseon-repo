@@ -1,0 +1,314 @@
+body{
+  line-height: 1.5em;
+  margin:0;
+  color:#222;
+  background-color: #f4f4f4;
+  font-family: 'Righteous', cursive;
+}
+a {
+  text-decoration: none;
+  color: #222;
+}
+/* 중앙정렬 */
+/* position:absolute; */
+/* left: 50%; */
+/* transform: translate(-50%); */
+/* height:inherit; */
+/* width:80vw; */
+
+
+
+/* header 영역 */
+header{
+  /* border: 1px solid lightblue; */
+  height:80px;
+  background-color: rgba(240, 128, 128, 0.172);
+  /* background-color: #FBE9E7 ; */
+  /* display: flex; */
+  /* justify-content: space-between; */
+}
+.header-wrapper{
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header > h2{
+  border: 1px solid lightblue;
+  /* margin:0; */
+  margin-left:100px;
+}
+.navibar, .sns{
+  list-style: none;
+  padding:0;
+  display: inline-block;
+  display:flex;
+  flex:1;
+}
+.navibar li, .sns li{ 
+  flex:1;
+  text-align: center;
+}
+.navibar{
+  border:1px solid red;
+  width: 600px;
+  margin:0;
+
+}
+.navibar li{
+  width:100%;
+  box-sizing: border-box;
+}
+.navibar li a{
+  display: inline-block;
+  width:inherit;
+  padding: 10px 10px;
+  box-sizing: border-box;
+}
+
+
+/* section 영역 */
+section{
+  height:calc(100vh - 80px); 
+  /* section요소가 브라우저 전체 높이를 가짐 */
+}
+/* article 영역 공통*/
+article{
+  /* border: 2px solid lightpink; */
+}
+
+/* article 영역 1 */
+.myprofile-sns{
+  position:relative; /*짝꿍-1*/
+  height: 450px;
+
+}
+
+.myprofile-sns::before{
+  content:"";
+  background: url(images/kakao.jpg) no-repeat center center; /*배경*/
+  background-size: cover; /*비율 전체차지*/
+  opacity: 0.3;/*흐리게*/
+  position:absolute; /*짝꿍-1*/ 
+  width: 100vw; /*브라우저 100%꽉차게*/
+  height: 100%; 
+}
+.content-wrapper{
+  display: inline-block;
+  /*position: absolute로 중앙정렬하기*/
+  position: absolute; /*짝꿍-1*/
+  left:50%;
+  transform: translate(-50%);
+  height:100%; /*article 1구간에 꽉 차도록*/
+  box-sizing: border-box; /*margin이나 padding으로 변경되는 크기 방지*/
+  padding-top:20px ;
+  /* border: 2px solid lightpink; */
+}
+
+.content-sns{
+  text-align: center; 
+  position:relative; /*짝꿍-2*/
+  /* background-color: #fff; */
+  
+}
+.content-sns:before{
+  content: "";
+  background-color: #F4BFBF;
+  /* before 배경 적용시 너비, 높이가 있어야함 */
+  width:300px;
+  height:300px;
+  /*position: absolute로 중앙정렬하기*/
+  position: absolute; /*짝꿍-2*/
+  left:50%;
+  transform: translate(-50%);
+  border-radius: 10%;
+  top:30%;
+  /* 포지션 속성이 relative, absolute, fixed가 들어가면 기본적으로 z-index는 0이 부여됨
+  따라서 z-index는 낮은게 후순위므로 -1을 부여해야 적용 */
+  z-index: -1;
+  
+  
+}
+
+.content-sns img{
+  border:10px solid rgb(240, 128, 128);
+  box-shadow: 0 0 0 20px rgba(240, 128, 128, .4);
+  border-radius: 50%;
+  height: 240px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.content-sns > h1,p{
+  margin:0;
+}
+.content-sns > h1{
+  /* 기본값 : 24px */
+  font-size: 25px; 
+  margin-top: 4px;
+}
+.sns li {
+  margin:5px;
+  border-radius: 50%;
+}
+.sns a{
+  border-radius: inherit;
+  display: inline-block;
+  width:25px;
+  height: 25px;
+  border: 3px solid rgb(240, 128, 128);
+  background-color: #fff;
+  position:relative;
+  /* before요소가 넘친부분을 가리기 위해 */
+  overflow: hidden;
+  /* line-height: 25px;
+  text-align: center; */
+}
+.sns a:before{
+  content: '';
+  position:absolute;
+  /* 세로로 차오름 */
+  width:100%;
+  height:0;
+  /* 가로로 차오름 ?? 안됨*/
+  /* width:0;
+  height:100%; */
+  
+  background-color: rgb(240, 128, 128);
+  left:0;
+  /*위에서 아래로*/
+  top:0;
+  /*아래서 위로*/
+  /* bottom:0;  */
+  transition: 0.5s;
+  
+}
+.sns a:hover:before{
+  /* 가로로 차오름 ?? 안됨*/
+  /* width:100%; */
+  /* 세로로 차오름 */
+  height:100%;
+  
+}
+
+/* icon 각 요소의 배경색을 바꿔줌 */
+/* .sns li:nth-child(1) a::before{
+  background-color: rgb(240, 128, 128);
+}
+.sns li:nth-child(2) a::before{
+  background-color: #0a2d42;
+}
+.sns li:nth-child(3) a::before{
+  background-color: #d0d8dc;
+}
+.sns li:nth-child(4) a::before{
+  background-color: #12249c;
+}
+.sns li:nth-child(5) a::before{
+  background-color: #15386c;
+} */
+
+
+
+.sns a .fa-brands{
+  position:relative;
+  transition:0.5s;
+}
+.sns a:hover .fa-brands{
+  transform:rotateY(360deg);
+  color:#fff;
+}
+
+
+
+
+
+
+/* article 영역 2 */
+.myprofile-detail{
+  display: flex;
+  flex:wrap;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  background-color: rgba(240, 128, 128, 0.172);
+}
+/* flex참고 사이트 https://moo-you.tistory.com/391 */
+
+
+/* article 영역 2 - 1 */
+.myprofile-detail > div:nth-child(1){
+  /* border: 1px solid red; */
+  flex : 1 0 100%;
+  /* flex-grow, flex-shrink, flex-basis  */
+  /* flex : 1 0 100%; */
+  /* flex-grow : 0보다 큰 값을 세팅하면 flexible박스로 변하면서 남은 여백 메우는 속성 - 비율 다르게 설정 가능 */
+  /* flex-shrink : 공간을 넘어갈 경우 아이템을 줄이는 방법, 기본값 : 1
+  부모 컨테이너의 크기가 flex 아이템보다 작아질 경우 부모 컨테이너에 맞춰 작아짐
+  flex-shrink를 0으로 설정시 부모 컨테이너의 크기 상관없이 유지 */
+  /* flex-basis : 컨텐츠 영역에 따라 비율 설정
+  flex-basis :0 일 경우 기본적으로 점유하는 공간을 0으로 세팅  */
+  text-align: center;
+  box-sizing: border-box;
+  padding:20px;
+}
+
+.myprofile-detail > div:nth-child(1) div:last-child{
+  text-align: left;
+}
+
+/* article 영역 2 - 2 */
+.myprofile-detail > div:nth-child(2){
+  /* border: 1px solid blue; */
+  /* flex-basis : 50% */
+  flex : 0 50%;
+  box-sizing: border-box;
+  padding-left: 30px;
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+.myprofile-detail > div:nth-child(2) h1{
+  font-size: 20px;
+}
+.myprofile-detail > div:nth-child(2) div h4{ 
+  display: inline-block;
+  margin: 2px;
+  padding-right: 10px;
+}
+/* article 영역 2 - 3 */
+.myprofile-detail > div:nth-child(3){
+  /* border: 1px solid blueviolet; */
+  flex : 0 50%;
+  box-sizing: border-box;
+  padding-left: 30px;
+}
+.icon-wrapper{
+  display: flex;
+  flex-wrap:wrap;
+}
+.icon-wrapper div{
+  /* border: 1px solid lightcoral; */
+  border-radius: 5px;
+  width:65px;
+  height:65px;
+  margin:4px;
+  position:relative;
+  text-align: center;
+  box-shadow: 1px 1px 5px grey;
+  /* box-shadow : 가로위치, 세로위치, blur값이 클수록 더 흐려짐,  color */
+  cursor: pointer;
+}
+.icon-wrapper i{
+  display: block;
+  width:65px;
+  position:absolute;
+  top:10px;
+  left:50%;
+  transform: translate(-50%);
+}
+.icon-wrapper span{
+  font-size:13px;
+  position:absolute;
+  top:50%;
+  transform: translate(-50%);
+}
