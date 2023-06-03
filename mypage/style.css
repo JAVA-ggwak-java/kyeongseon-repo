@@ -3,8 +3,17 @@ body{
   margin:0;
   color:#222;
   background-color: #f4f4f4;
-  font-family: 'Righteous', cursive;
+  font-family: 'Righteous','omyu_pretty', cursive;
+  background-color: rgba(240, 128, 128, 0.172);
 }
+
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 a {
   text-decoration: none;
   color: #222;
@@ -26,6 +35,7 @@ header{
   /* background-color: #FBE9E7 ; */
   /* display: flex; */
   /* justify-content: space-between; */
+  
 }
 .header-wrapper{
   height: inherit;
@@ -33,11 +43,11 @@ header{
   justify-content: space-between;
   align-items: center;
 }
-
-header > h2{
-  border: 1px solid lightblue;
-  /* margin:0; */
-  margin-left:100px;
+.header-wrapper > h2{
+  margin-left: 70px;
+}
+.header-wrapper > .navibar-wrapper{
+  margin-right: 50px;
 }
 .navibar, .sns{
   list-style: none;
@@ -51,7 +61,7 @@ header > h2{
   text-align: center;
 }
 .navibar{
-  border:1px solid red;
+  /* border:1px solid red; */
   width: 600px;
   margin:0;
 
@@ -63,14 +73,35 @@ header > h2{
 .navibar li a{
   display: inline-block;
   width:inherit;
-  padding: 10px 10px;
+  padding: 5px 10px;
   box-sizing: border-box;
+  position:relative;
+  /* border: 1px solid black; */
+  
 }
-
+.navibar li a:before{
+  content: '';
+  width:0;
+  height:2px;
+  bottom:0;
+  position:absolute;
+  background-color: rgba(240, 128, 128, 0.789);
+  transition:0.5s;
+  /* 중앙에서 부터 좌우로 골고루 퍼지도록 하기 위해 */
+  left:50%;
+  /* 자기자신의 x축에서 -50%로 만들어줌으로서 정 가운데를 유지 */
+  transform:translateX(-50%);
+}
+/* .gnb li a에 마우스가 올라갔을때 */
+.navibar li a:hover:before{
+  width:80%;
+}
 
 /* section 영역 */
 section{
+  /* border: 1px solid black; */
   height:calc(100vh - 80px); 
+  
   /* section요소가 브라우저 전체 높이를 가짐 */
 }
 /* article 영역 공통*/
@@ -82,7 +113,6 @@ article{
 .myprofile-sns{
   position:relative; /*짝꿍-1*/
   height: 450px;
-
 }
 
 .myprofile-sns::before{
@@ -93,6 +123,8 @@ article{
   position:absolute; /*짝꿍-1*/ 
   width: 100vw; /*브라우저 100%꽉차게*/
   height: 100%; 
+  border: 1px solid #222;
+  box-sizing: border-box;
 }
 .content-wrapper{
   display: inline-block;
@@ -231,7 +263,10 @@ article{
   flex:wrap;
   flex-wrap: wrap;
   box-sizing: border-box;
-  background-color: rgba(240, 128, 128, 0.172);
+}
+.myprofile-detail > .content {
+  
+
 }
 /* flex참고 사이트 https://moo-you.tistory.com/391 */
 
@@ -252,9 +287,28 @@ article{
   box-sizing: border-box;
   padding:20px;
 }
+.myprofile-detail > div:nth-child(1) h2{
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
 
-.myprofile-detail > div:nth-child(1) div:last-child{
-  text-align: left;
+.myprofile-detail > div:nth-child(1) .my-mbti{
+  background-color: rgba(240, 128, 128, 0.172);
+    /* visibility: hidden; */
+    cursor: pointer;
+}
+.myprofile-detail > div:nth-child(1) .my-mbti:before{
+  content:'궁금하면 마우스 올려주세요';
+  width:100px;
+  height:20px;
+  color:#222;
+}
+.myprofile-detail > div:nth-child(1) .my-mbti:hover::before{
+  content:'';
+}
+.myprofile-detail > div:nth-child(1) .my-mbti:hover:after{
+  content:'ISFJ 입니당ㅎㅎ';
+  
 }
 
 /* article 영역 2 - 2 */
@@ -267,13 +321,16 @@ article{
   padding-bottom: 10px;
   font-size: 14px;
 }
-.myprofile-detail > div:nth-child(2) h1{
+.myprofile-detail > div:nth-child(2) h1,
+.myprofile-detail > div:nth-child(3) h1{
   font-size: 20px;
+  margin:10px 0;
 }
 .myprofile-detail > div:nth-child(2) div h4{ 
   display: inline-block;
   margin: 2px;
   padding-right: 10px;
+  
 }
 /* article 영역 2 - 3 */
 .myprofile-detail > div:nth-child(3){
@@ -282,6 +339,7 @@ article{
   box-sizing: border-box;
   padding-left: 30px;
 }
+
 .icon-wrapper{
   display: flex;
   flex-wrap:wrap;
@@ -292,6 +350,7 @@ article{
   width:65px;
   height:65px;
   margin:4px;
+  /* background-color: #fff; */
   position:relative;
   text-align: center;
   box-shadow: 1px 1px 5px grey;
