@@ -54,7 +54,7 @@ header{
 .navibar, .sns{
   list-style: none;
   padding:0;
-  display: inline-block;
+  /* display: inline-block; */
   display:flex;
   flex:1;
 }
@@ -173,8 +173,21 @@ article{
   height: 240px;
   margin-top: 10px;
   margin-bottom: 15px;
+  position: relative;
 }
-
+/* mission : hover시 gif로 변경되는 효과주기?? 고민해보자~
+.content-sns img:hover{
+  border:10px solid lawngreen;
+  
+}
+.content-sns img:before{
+  content: 'aaaa';
+  height: 240px;
+  width:20px;
+  background-color: #222;
+  position: absolute;
+  background: url(images/어피치\ 자신감\ 뿜뿜.gif) no-repeat center center;
+} */
 .content-sns > h1,p{
   margin:0;
 }
@@ -297,8 +310,8 @@ article{
 
 .myprofile-detail > div:nth-child(1) .my-mbti{
   background-color: rgba(240, 128, 128, 0.172);
-    /* visibility: hidden; */
-    cursor: pointer;
+  /* visibility: hidden; */
+  cursor: pointer;
 }
 .myprofile-detail > div:nth-child(1) .my-mbti:before{
   content:'궁금하면 마우스 올려주세요';
@@ -313,35 +326,47 @@ article{
   content:'ISFJ 입니당ㅎㅎ';
   
 }
-
 /* article 영역 2 - 2 */
-.myprofile-detail > div:nth-child(2){
-  /* border: 1px solid blue; */
-  /* flex-basis : 50% */
-  flex : 0 50%;
-  box-sizing: border-box;
-  padding-left: 30px;
-  padding-bottom: 10px;
+.contents-wrapper{
+  display: flex;
+  justify-content: center;
+  flex : 1 0 100%;
+
   font-size: 14px;
 }
-.myprofile-detail > div:nth-child(2) h1,
-.myprofile-detail > div:nth-child(3) h1{
+.contents-wrapper h1{
   font-size: 20px;
   margin:10px 0;
 }
+
+/* personal details 부분 */
 .myprofile-detail > div:nth-child(2) div h4{ 
   display: inline-block;
   margin: 2px;
   padding-right: 10px;
-  
 }
-/* article 영역 2 - 3 */
-.myprofile-detail > div:nth-child(3){
-  /* border: 1px solid blueviolet; */
+.contents-wrapper > div:nth-child(1){
+
+  flex : 0 30%;
+}
+
+/* my interests 부분 */
+.contents-wrapper > div:nth-child(2){
+
+  flex : 0 30%;
+}
+
+
+/* article 영역 2 - 2  위와 동일한 css선택자*/
+/* .myprofile-detail > div:nth-child(2){
+  border: 1px solid blue;
+  flex-basis : 50%;
   flex : 0 50%;
   box-sizing: border-box;
   padding-left: 30px;
-}
+  padding-bottom: 10px;
+} */
+
 
 .icon-wrapper{
   display: flex;
